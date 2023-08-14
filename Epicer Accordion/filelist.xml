@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="Epicer Accordion" modversion="1.0.1" corepackage="False" steamworkshopid="2881809515" gameversion="0.19.14.0">
+  <Talents file="%ModDir%/drunkensailor.xml" />
+  <Talents file="%ModDir%/melodicrespite.xml" />
+  <Talents file="%ModDir%/enrollintoclowncollege.xml" />
+  <Talents file="%ModDir%/inspiringtunes.xml" />
+  <Talents file="%ModDir%/truepotential.xml" />
+</contentpackage>

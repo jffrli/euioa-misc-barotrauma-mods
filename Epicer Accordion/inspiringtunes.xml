@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Talents>
+  <Override>
+    <Talent identifier="inspiringtunes">
+      <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="6,5" sheetelementsize="128,128"/>
+      <Description tag="talentdescription.inspiringtunes">
+        <Replace tag="[afflictionname]" value="afflictionname.clownpower" color="gui.orange"/>
+        <Replace tag="[skillamount]" value="15" color="gui.green"/>
+      </Description>
+      <AbilityGroupEffect abilityeffecttype="OnUseRangedWeapon">
+        <Conditions>
+          <AbilityConditionHasAffliction afflictionidentifier="clownpower" />
+          <AbilityConditionItem tags="hornitem,accordion"/>
+        </Conditions>
+        <Abilities>
+          <CharacterAbilityApplyStatusEffects>
+            <StatusEffects>
+              <StatusEffect type="OnAbility" target="Character">
+                <Explosion range="500" showeffects="false" itemrepairstrength="5"/>
+              </StatusEffect>
+            </StatusEffects>
+          </CharacterAbilityApplyStatusEffects>
+          <CharacterAbilityApplyStatusEffectsToAllies maxdistance="600" allowself="false">
+            <StatusEffects>
+              <StatusEffect type="OnAbility" target="Character" multiplyafflictionsbymaxvitality="true">
+                <Affliction identifier="inspiringtunes" strength="1.0"/>
+              </StatusEffect>
+            </StatusEffects>
+          </CharacterAbilityApplyStatusEffectsToAllies>
+        </Abilities>
+      </AbilityGroupEffect>
+    </Talent>
+  </Override>
+</Talents>

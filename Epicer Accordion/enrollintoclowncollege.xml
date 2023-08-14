@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Talents>
+  <Override>
+    <Talent identifier="enrollintoclowncollege">
+      <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="4,5" sheetelementsize="128,128"/>
+      <Description tag="talentdescription.enrollintoclowncollege">
+        <Replace tag="[afflictionname]" value="afflictionname.clownpower" color="gui.orange"/>
+      </Description>
+      <Description tag="talentdescription.honkinggivesskillgain">
+        <Replace tag="[skillgainincrease]" value="30" color="gui.orange"/>
+      </Description>
+      <Description tag="talentdescription.clownpowerdamagereduction">
+        <Replace tag="[afflictionname]" value="afflictionname.clownpower" color="gui.orange"/>
+        <Replace tag="[physicalresistance]" value="25" color="gui.green"/>
+      </Description>
+      <AbilityGroupInterval interval="0.9">
+        <Conditions>
+          <AbilityConditionHasItem tags="clowngear,clownmask" requireall="true"/>
+        </Conditions>
+        <Abilities>
+          <CharacterAbilityApplyStatusEffects>
+            <StatusEffects>
+              <StatusEffect type="OnAbility" target="Character" disabledeltatime="true" multiplyafflictionsbymaxvitality="true">
+                <Affliction identifier="clownpower" amount="1.0"/>
+              </StatusEffect>
+            </StatusEffects>
+          </CharacterAbilityApplyStatusEffects>
+        </Abilities>
+      </AbilityGroupInterval>
+      <AbilityGroupEffect abilityeffecttype="OnUseRangedWeapon">
+        <Conditions>
+          <AbilityConditionHasAffliction afflictionidentifier="clownpower" />
+          <AbilityConditionItem tags="hornitem,accordion"/>
+        </Conditions>
+        <Abilities>
+          <CharacterAbilityApplyStatusEffectsToAllies maxdistance="600" allowself="false">
+            <StatusEffects>
+              <StatusEffect type="OnAbility" target="Character" multiplyafflictionsbymaxvitality="true">
+                <Affliction identifier="skillfulmelodies" strength="1.0"/>
+              </StatusEffect>
+            </StatusEffects>
+          </CharacterAbilityApplyStatusEffectsToAllies>
+        </Abilities>
+      </AbilityGroupEffect>
+      <AbilityGroupInterval>
+        <Conditions>
+          <AbilityConditionHasAffliction afflictionidentifier="clownpower" />
+        </Conditions>
+        <Abilities>
+          <CharacterAbilityModifyResistance resistanceid="damage" resistance="0.75"/>
+        </Abilities>
+      </AbilityGroupInterval>
+    </Talent>
+  </Override>
+</Talents>
