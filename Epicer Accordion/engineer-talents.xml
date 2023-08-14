@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Talents>
+  <Override>
+    <Talent identifier="melodicrespite">
+      <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="1,0" sheetelementsize="128,128" />
+      <Description tag="talentdescription.melodicrespite2">
+        <Replace tag="[duration]" value="10" color="gui.green" />
+        <Replace tag="[buffamount]" value="25" color="gui.green" />
+        <Replace tag="[buffname]" value="stattypenames.repairspeed" color="gui.orange" />
+        <Replace tag="[buffduration]" value="60" color="gui.green" />
+      </Description>
+      <AbilityGroupEffect abilityeffecttype="OnUseRangedWeapon">
+        <Conditions>
+          <AbilityConditionItem identifiers="guitar,epicaccordion" />
+        </Conditions>
+        <Abilities>
+          <CharacterAbilityApplyStatusEffects>
+            <StatusEffects>
+              <StatusEffect type="OnAbility" target="Character">
+                <Affliction identifier="melodicrespite_charging" amount="2" />
+              </StatusEffect>
+            </StatusEffects>
+          </CharacterAbilityApplyStatusEffects>
+        </Abilities>
+      </AbilityGroupEffect>
+      <AbilityGroupEffect abilityeffecttype="OnUseRangedWeapon">
+        <Conditions>
+          <AbilityConditionItem identifiers="guitar,epicaccordion" />
+          <AbilityConditionHasAffliction afflictionidentifier="melodicrespite_charging" minimumpercentage="0.9" />
+        </Conditions>
+        <Abilities>
+          <CharacterAbilityApplyStatusEffectsToAllies range="600">
+            <StatusEffects>
+              <StatusEffect type="OnAbility" target="Character" multiplyafflictionsbymaxvitality="false" interval="1" disabledeltatime="true">
+                <Affliction identifier="melodicrespite" amount="60" />
+              </StatusEffect>
+            </StatusEffects>
+          </CharacterAbilityApplyStatusEffectsToAllies>
+        </Abilities>
+      </AbilityGroupEffect>
+    </Talent>
+  </Override>
+</Talents>

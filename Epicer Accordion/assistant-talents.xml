@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Talents>
+  <Override>
+    <Talent identifier="inspiringtunes">
+      <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="3,3" sheetelementsize="128,128" />
+      <Description tag="talentdescription.inspiringtunes">
+        <Replace tag="[skillamount]" value="15" color="gui.green" />
+        <Replace tag="[duration]" value="10" color="gui.green" />
+      </Description>
+      <AbilityGroupEffect abilityeffecttype="OnUseRangedWeapon">
+        <Conditions>
+          <AbilityConditionItem tags="hornitem,instrument,accordion" />
+        </Conditions>
+        <Abilities>
+          <CharacterAbilityApplyStatusEffectsToAllies maxdistance="600" allowself="false">
+            <StatusEffects>
+              <StatusEffect type="OnAbility" target="Character" multiplyafflictionsbymaxvitality="true">
+                <Affliction identifier="inspiringtunes" strength="10.0" />
+              </StatusEffect>
+            </StatusEffects>
+          </CharacterAbilityApplyStatusEffectsToAllies>
+        </Abilities>
+      </AbilityGroupEffect>
+    </Talent>
+  </Override>
+  <Override>
+    <Talent identifier="chonkyhonks">
+      <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="6,7" sheetelementsize="128,128" />
+      <Description tag="talentdescription.chonkyhonks">
+        <Replace tag="[chance]" value="50" color="gui.green" />
+        <Replace tag="[duration]" value="1" color="gui.green" />
+      </Description>
+      <AbilityGroupEffect abilityeffecttype="OnUseRangedWeapon">
+        <Conditions>
+          <AbilityConditionItem tags="hornitem,accordion" />
+          <AbilityConditionHasAffliction afflictionidentifier="clownpower" />
+          <AbilityConditionServerRandom randomchance="0.5" />
+        </Conditions>
+        <Abilities>
+          <CharacterAbilityApplyStatusEffectToNonHumans maxdistance="600">
+            <StatusEffects>
+              <StatusEffect type="OnAbility" target="Character" multiplyafflictionsbymaxvitality="true">
+                <Affliction identifier="stun" strength="1.0" />
+              </StatusEffect>
+            </StatusEffects>
+          </CharacterAbilityApplyStatusEffectToNonHumans>
+        </Abilities>
+      </AbilityGroupEffect>
+    </Talent>
+  </Override>
+</Talents>

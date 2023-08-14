@@ -1,6 +1,16 @@
 # Epicer Accordion
-Makes the Epic Accordion work with all instrument perks, including clown power
+Makes the Epic Accordion work with all instrument perks, including bike horn perks.
 
-NOT UPDATED FOR THE TALENTS REWORK
 Requires
 - (Epic Accordion)[https://steamcommunity.com/sharedfiles/filedetails/?id=2876860342]
+
+## Talents this works for
+Captain
+- Steady Tune
+
+Engineer
+- Melodic Respite
+
+Assistant
+- Inspiring Tunes
+- Chonky Honks
